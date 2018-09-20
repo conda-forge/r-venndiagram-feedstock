@@ -1,5 +1,4 @@
-{% set version = '1.6.18' %}
-
+{% set version = '1.6.20' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,29 +9,31 @@ package:
 source:
   fn: VennDiagram_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/VennDiagram_{{ version }}.tar.gz
-  sha256: ea6286dea4b12185c0f81c60a729613a55be32d969be14d232ea6aeacbd47017 
+    - {{ cran_mirror }}/src/contrib/VennDiagram_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/VennDiagram/VennDiagram_{{ version }}.tar.gz
+  sha256: e51cb3fff23c6ec8191966490bf875a7415f8725d4054bae881a25febb9281c5
 
 build:
+  merge_build_host: True  # [win]
   number: 0
-  skip: true   # [win32]
-
+  skip: true  # [win32]
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
     - r-futile.logger
-
   run:
     - r-base
     - r-futile.logger
 
 test:
   commands:
-    - $R -e "library('VennDiagram')"  # [not win]
+    - $R -e "library('VennDiagram')"           # [not win]
     - "\"%R%\" -e \"library('VennDiagram')\""  # [win]
 
 about:
@@ -42,9 +43,14 @@ about:
     for several special cases, including two-case scaling, and extensive customization
     of plot shape and structure.
   license_family: GPL2
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'  # [unix]
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-2'  # [win]
 
 extra:
   recipe-maintainers:
     - johanneskoester
     - bgruening
     - daler
+    - jdblischak
+    - cbrueffer
+    - dbast
