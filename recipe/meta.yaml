@@ -1,4 +1,4 @@
-{% set version = '1.6.20' %}
+{% set version = "1.7.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,12 +11,12 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/VennDiagram_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/VennDiagram/VennDiagram_{{ version }}.tar.gz
-  sha256: e51cb3fff23c6ec8191966490bf875a7415f8725d4054bae881a25febb9281c5
+  sha256: 7537566ae94ea4bde97ca819ce5ec477943f33847a8eb0042d0859ce11ab35d1
 
 build:
   noarch: generic
-  merge_build_host: True  # [win]
-  number: 1002
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -39,11 +39,9 @@ test:
 about:
   home: https://CRAN.R-project.org/package=VennDiagram
   license: GPL-2
-  summary: A set of functions to generate high-resolution Venn and Euler plots. Includes handling
-    for several special cases, including two-case scaling, and extensive customization
-    of plot shape and structure.
+  summary: A set of functions to generate high-resolution Venn and Euler plots. Includes handling for several special cases, including two-case scaling, and extensive customization of plot shape and structure.
   license_family: GPL2
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
