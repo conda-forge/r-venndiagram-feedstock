@@ -1,4 +1,4 @@
-{% set version = "1.7.0" %}
+{% set version = "1.7.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,7 +11,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/VennDiagram_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/VennDiagram/VennDiagram_{{ version }}.tar.gz
-  sha256: 7537566ae94ea4bde97ca819ce5ec477943f33847a8eb0042d0859ce11ab35d1
+  sha256: cb841a727df74b1882272e9da44dcc5251c005d543116caf476e03ad9224857b
 
 build:
   noarch: generic
