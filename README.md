@@ -1,11 +1,11 @@
-About r-venndiagram
-===================
+About r-venndiagram-feedstock
+=============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-venndiagram-feedstock/blob/main/LICENSE.txt)
 
 Home: https://CRAN.R-project.org/package=VennDiagram
 
 Package license: GPL-2
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-venndiagram-feedstock/blob/main/LICENSE.txt)
 
 Summary: A set of functions to generate high-resolution Venn and Euler plots. Includes handling for several special cases, including two-case scaling, and extensive customization of plot shape and structure.
 
