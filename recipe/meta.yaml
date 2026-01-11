@@ -1,4 +1,4 @@
-{% set version = "1.7.3" %}
+{% set version = "1.8.2" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/VennDiagram_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/VennDiagram/VennDiagram_{{ version }}.tar.gz
-  sha256: e7c2475f7613241787e6c85bd03315e4fd88413ccbbb735959756a8c2eeb8c46
+  sha256: 24b9751b7a537f7eb6273f14dd845f0ca38c2f5230b619ff637a839f8489fd93
 
 build:
   noarch: generic
-  number: 4
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
